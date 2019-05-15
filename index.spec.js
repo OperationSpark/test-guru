@@ -1,4 +1,7 @@
 describe("Test Guru", function () {
+  
+  /* global expect, sinon*/
+  
   beforeEach(function () {
     sinon.spy(console, 'log');
   });
@@ -11,10 +14,11 @@ describe("Test Guru", function () {
     var value = "hello tests";
     var some_number = 484;
 
-    //                     ┌ Change this to what it should be
-    assert.equal(value, '???');
-    //                           ┌ Change this to what it should be
-    assert.equal(some_number, '???');
+    //                 ┌ Change this to what it should be
+    expect(value === '???').to.be.true;
+    
+    //                        ┌ Change this to what it should be
+    expect(some_number === '???').to.be.true;
   });
 
   it("Functions can access/modify variables in parent scope.", function(){
@@ -25,14 +29,14 @@ describe("Test Guru", function () {
     }
 
     yay();
-
-    assert.equal(outside_the_function, "???");
+    
+    expect(outside_the_function === '???').to.be.true;
   });
 
   it("Function Parameters become scoped to the function.", function(){
 
     function yay(param){
-      assert.equal(param, "???");
+      expect(param === '???').to.be.true;
     }
 
     yay("a fine kettle of fish");
@@ -41,7 +45,7 @@ describe("Test Guru", function () {
   it("A functions local scope is not available in an outer scope.", function(){
     function yay(){
       var kix = "kid tested mother approved";
-      assert.equal(kix, "???");
+      expect(kix === '???').to.be.true;
     }
     yay();
     
@@ -55,7 +59,7 @@ describe("Test Guru", function () {
     } else {
       has_kix = "i prefer cheerios";
     }
-    assert.equal(has_kix, "???");
+    expect(has_kix === '???').to.be.true;
   });
 
   it("Functions don't have access to eachothers scope", function(){
@@ -68,8 +72,8 @@ describe("Test Guru", function () {
       if(this.from_yay !== undefined){
         in_foo = this.from_yay;
       }
-      assert.equal(in_foo, "???");
-      assert.equal(this.from_yay, "???");
+      expect(in_foo === '???').to.be.true;
+      expect(this.from_yay === '???').to.be.true;
     }
     yay();
     foo();
@@ -82,11 +86,11 @@ describe("Test Guru", function () {
     function yay(){
       var peanuts = "roasted";
 
-      assert.equal(peanuts, "???");
+      expect(peanuts === '???').to.be.true;
     }
     yay();
 
-    assert.equal(peanuts, "???");
+    expect(peanuts === '???').to.be.true;
   });
 
   it("Variables created with var in a funtion are re-created each time", function(){
@@ -99,11 +103,11 @@ describe("Test Guru", function () {
     }
 
     yay();
-    assert.equal(this.counter, "???");
+    expect(this.counter === '???').to.be.true;
     yay();
-    assert.equal(this.counter, "???");
+    expect(this.counter === '???').to.be.true;
     yay();
-    assert.equal(this.counter, "???");
+    expect(this.counter === '???').to.be.true;
   });
 
   it("Inner scope can access outer scope", function(){
@@ -113,7 +117,7 @@ describe("Test Guru", function () {
       return im_outside + im_inside;
     }
 
-    assert.equal(yay(), "???");
+    expect(yay() === '???').to.be.true;
   });
 
   it("Functions retain outer scope references between calls.", function(){
@@ -123,9 +127,9 @@ describe("Test Guru", function () {
     }
 
     yay();
-    assert.equal(im_outside, "???");
+    expect(im_outside === '???').to.be.true;
     yay();
-    assert.equal(im_outside, "???");
+    expect(im_outside === '???').to.be.true;
   });
 
   it("We can do goofy stuff with outer scope", function(){
@@ -138,11 +142,12 @@ describe("Test Guru", function () {
     }
 
     yay();
-    assert.equal(name, "???");
+    expect(name === '???').to.be.true;
     yay();
-    assert.equal(name, "???");
+    expect(name === '???').to.be.true;
     yay();
-    assert.equal(name, "???");
+    expect(name === '???').to.be.true;
+
   });
 
   it("We can pass functions to other functions and then run them.", function(){
@@ -155,8 +160,8 @@ describe("Test Guru", function () {
       whatever();
     }
     something(yay);
-    assert.equal(im_outter, "???");
-
+    
+    expect(im_outter === '???').to.be.true;
   });
 
   it("We can get crazy with returns.", function(){
@@ -166,6 +171,7 @@ describe("Test Guru", function () {
     function foo(whatever){
       return "hello, this" + whatever();
     }
-    assert.equal(foo(yay), "???");
+
+    expect(foo(yay) === '???').to.be.true;
   });
 });
