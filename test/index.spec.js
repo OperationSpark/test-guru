@@ -5,7 +5,7 @@ const
   
 var content;
 // First I want to read the file
-fs.readFile('~/projects/test/index.spec.js', function read(err, data) {
+fs.readFile('~/projects/test-guru/index.spec.js', function read(err, data) {
     if (err) {
         throw err;
     }
