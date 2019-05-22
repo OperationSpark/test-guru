@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "pretest": "npm install && node util.js",
+    "pretest": "npm install && node test/util.js",
     "test": "mocha test/index.spec.js || :",
     "posttest": "rm -rf ./test ./node_modules"
   },
