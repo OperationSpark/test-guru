@@ -5,7 +5,7 @@ const fs = require('fs');
 */
 
 // Reading the students test file
-fs.readFile('index.spec.js', { encoding: 'utf-8' },function(err, data) {
+fs.readFile('./index.spec.js', { encoding: 'utf-8' },function(err, data) {
     if (err) {
         console.error(err);
     }
