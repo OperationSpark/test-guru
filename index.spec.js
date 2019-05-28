@@ -1,3 +1,9 @@
+var sinon;
+if ((typeof process !== 'undefined') &&
+  (typeof process.versions.node !== 'undefined')) {
+  // here, export any references you need for tests //
+  sinon = require('sinon');
+}
 describe("Test Guru", function () {
   
   /* global expect, sinon*/
