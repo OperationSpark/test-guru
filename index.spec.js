@@ -1,3 +1,12 @@
+var sinon;
+var expect;
+if ((typeof process !== 'undefined') &&
+  (typeof process.versions.node !== 'undefined')) {
+  // here, export any references you need for tests //
+  sinon = require('sinon');
+  expect = require('chai').expect;
+}
+
 describe("Test Guru", function () {
   
   /* global expect, sinon*/
