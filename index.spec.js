@@ -102,7 +102,7 @@ describe("Test Guru", function () {
     expect(peanuts === '???').to.be.true;
   });
 
-  it("Variables created with var in a funtion are re-created each time", function(){
+  it("Variables created with var in a function are re-created each time", function(){
     function yay(){
       if(this.counter !== undefined){
         counter = counter + 1;
