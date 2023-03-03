@@ -71,7 +71,7 @@ describe("Test Guru", function () {
     expect(has_kix === '???').to.be.true;
   });
 
-  it("Functions don't have access to eachothers scope", function(){
+  it("Functions don't have access to each other's scope", function(){
     function yay(){
       var from_yay = "i'm inside yay;";
     }
